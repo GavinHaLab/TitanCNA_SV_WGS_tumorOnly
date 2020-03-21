@@ -1,5 +1,5 @@
 # Snakemake workflow for TitanCNA_SV_WGS_tumorOnly
-
+#
 
 # Modules to load
  * ml snakemake/5.2.4-foss-2016b-Python-3.6.6
