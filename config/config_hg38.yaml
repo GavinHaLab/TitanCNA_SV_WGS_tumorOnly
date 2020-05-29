@@ -52,9 +52,8 @@ ichorCNA_repTimeWig: /fh/fast/ha_g/user/mko/ichorCNA/inst/extdata/RepTiming_hg38
 ichorCNA_centromere:  /fh/fast/ha_g/user/mko/ichorCNA/inst/extdata/GRCh38.GCA_000001405.2_centromere_acen.txt
 
 ichorCNA_chrs:  paste0('chr', c(1:22, \"X\"))
-ichorCNA_genomeBuild: hg38
-ichorCNA_genomeStyle:  UCSC
-ichorCNA_sex: male
+#ichorCNA_genomeBuild: hg38
+#ichorCNA_genomeStyle:  UCSC
 # chrs used for training ichorCNA parameters, e.g. tumor fraction. 
 ichorCNA_chrTrain:  paste0('chr', c(1:22))
 # non-tumor fraction parameter restart values; higher values should be included for cfDNA
