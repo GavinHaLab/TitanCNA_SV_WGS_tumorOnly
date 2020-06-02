@@ -91,12 +91,20 @@ lcol <- NULL
 arr.col <- NULL
 svabaCol <- "black"
 manualCol <- "purple"
+
+if (chrStr == "0" || is.null(chrStr) || chrStr == "None"){
+  chrStr <- as.character(c(1:22, "X"))
+}
+seqlevelsStyle(chrStr) <- genomeStyle
+
 bsg <- paste0("BSgenome.Hsapiens.UCSC.", genomeBuild)
 if (!require(bsg, character.only=TRUE, quietly=TRUE, warn.conflicts=FALSE)) {
-	seqinfo <- Seqinfo(genome=genomeBuild)
+  seqinfo <- Seqinfo(genome=genomeBuild)
 } else {
-	seqinfo <- seqinfo(get(bsg))
+  seqinfo <- seqinfo(get(bsg))
 }
+seqlevelsStyle(seqinfo) <- genomeStyle
+seqinfo <- keepSeqlevels(seqinfo, value = chrStr)
 
 if (zoom){
   xlim <- c(startPos, endPos)
@@ -121,10 +129,7 @@ if (zoom){
   plotSegs <- FALSE
   exclude.na.snp <- TRUE
 }
-if (chrStr == "0" || is.null(chrStr) || chrStr == "None"){
-  chrStr <- as.character(c(1:22, "X"))
-}
-seqlevelsStyle(chrStr) <- genomeStyle
+
 if (plotType == "titan"){
 	cnColor <- TRUE
 	plotAllelicFrac <- TRUE

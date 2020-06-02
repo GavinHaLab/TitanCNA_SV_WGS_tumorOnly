@@ -109,6 +109,38 @@ setVCFgenomeStyle <- function(x, genomeStyle = "NCBI"){
 	return(x)
 } 
 
+###############################################
+##### convert to bedpe from vcf file path #####
+###############################################
+convertVCF2bedpe <- function(vcfFile, genomeBuild = "hg38", genomeStyle = "UCSC"){
+  vcf <- tryCatch({
+      message("loading vcf ", vcfFile)
+      readVcf(svFiles[i], genome = genomeBuild)
+    }, error = function(x){ 
+      return(NA) 
+  })
+
+  if (!is.na(vcf)){
+    sv <- getSVfromCollapsedVCF(vcf, genomeStyle = genomeStyle)
+    sv <- cbind(Sample=id, sv)
+
+    #sv.out <- svAll[, .(Sample, SV.combined.id, chromosome_1, start_1, orient_1, chromosome_2, start_2, orient_2)]
+    sv.out <- copy(sv)
+    sv.out[, c("chrom1", "start1", "end1", "chrom2", "start2", "end2") := .(chromosome_1, start_1, start_1, chromosome_2, start_2, start_2)]
+    sv.out[, strand1 := { strand = rep("+", .N); strand[orient_1=="fwd"] = "-"; strand }]
+    sv.out[, strand2 := { strand = rep("+", .N); strand[orient_2=="fwd"] = "-"; strand }]
+    #setnames(sv.out, c("chromosome_1", "start_1", "chromosome_2", "start_2"), 
+    # c("chrom1", "start1", "chrom2", "start2"))
+    sv.out[, name := "."]; sv.out[, score := "."]
+    colNameOrder <- c("chrom1", "start1", "end1", "chrom2", "start2", "end2", "name", "score", "strand1", "strand2")
+    setcolorder(sv.out, c(colNameOrder, colnames(sv.out)[!colnames(sv.out) %in% colNameOrder]))
+  }else{
+    return(NULL)
+  }
+
+  return(sv.out)
+}
+
 ##########################################
 ##### remove duplicate breakpoints #######
 ##########################################
@@ -371,7 +403,7 @@ setGenomeStyle <- function(x, genomeStyle = "NCBI", species = "Homo_sapiens"){
 ###########################################
 loadBPStoDataTableByChromosome <- function(bpsFile, tumor.id, chrs = c(1:22, "X"), 
     minLength = 1, dupSV.bpDiff = 1000){
-  sv <- fread(paste0("gunzip -c ", bpsFile))
+  sv <- fread(cmd=paste0("gunzip -c ", bpsFile))
   sv <- sv[chr1 %in% chrs & chr2 %in% chrs]
   ## filter vcf by span length ##
   #indSPAN <- sv[, span >= minLength | span == -1 | confidence == "PASS"]
