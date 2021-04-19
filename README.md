@@ -2,13 +2,12 @@
 #
 
 # Modules to load
- * ml snakemake/5.2.4-foss-2016b-Python-3.6.6
- * ml R/3.6.1-foss-2016b-fh1
- * ml Python/3.6.6-foss-2016b
- * ml BCFtools/1.9-foss-2016b
- * ml Pysam/0.15.1-foss-2016b-Python-3.6.6
- * ml PyYAML/3.13-foss-2016b-Python-3.6.6
- * ml SAMtools/1.9-foss-2016b
+* ml snakemake/5.19.2-foss-2019b-Python-3.7.4
+* ml R/3.6.2-foss-2019b-fh1
+* ml Python/3.7.4-foss-2019b-fh1
+* ml BCFtools/1.9-GCC-8.3.0
+* ml Pysam/0.15.4-GCC-8.3.0-Python-3.7.4
+* ml PyYAML/5.1.2-GCCcore-8.3.0-Python-3.7.4
 
 # Set-up
 ## config/samples.yaml
@@ -57,7 +56,7 @@ ichorCNA_normalPanel: my_new_pon.rds
 ```
 https://github.com/GavinHaLab/ichorCNA/blob/85c4339d7ced280d8e2113055f832911ea81cd08/scripts/snakemake/config/config.yaml#L13
 
-## 3. Use normalpanel parameters from ichorCNA.snakefile
+## 3. Use normalpanel parameter from ichorCNA.snakefile
 - Uncomment following line
 https://github.com/GavinHaLab/TitanCNA_SV_WGS_tumorOnly/blob/0032aae86465c7e97daa0c5d0e8ca91cc04349d4/ichorCNA.snakefile#L50
 
