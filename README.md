@@ -57,3 +57,9 @@ ichorCNA_normalPanel: my_new_pon.rds
 ```
 https://github.com/GavinHaLab/ichorCNA/blob/85c4339d7ced280d8e2113055f832911ea81cd08/scripts/snakemake/config/config.yaml#L13
 
+## 3. Use normalpanel parameters from ichorCNA.snakefile
+- Uncomment following line
+https://github.com/GavinHaLab/TitanCNA_SV_WGS_tumorOnly/blob/0032aae86465c7e97daa0c5d0e8ca91cc04349d4/ichorCNA.snakefile#L50
+
+- Make sure to add `--normalPanel {params.normalpanel}` to here
+https://github.com/GavinHaLab/TitanCNA_SV_WGS_tumorOnly/blob/0032aae86465c7e97daa0c5d0e8ca91cc04349d4/ichorCNA.snakefile#L76
