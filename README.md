@@ -61,9 +61,9 @@ Rscript createPanelOfNormals.R
      --outfile my_new_pon
 ```
 
-Make sure to use the updated version of the R script https://github.com/GavinHaLab/ichorCNA/blob/master/scripts/createPanelOfNormals.R
-
 Requires to install ichorCNA from our GavinHaLab github https://github.com/GavinHaLab/ichorCNA
+
+Make sure to use the updated version of the R script https://github.com/GavinHaLab/ichorCNA/blob/master/scripts/createPanelOfNormals.R
 
 Specify the exon target bed file using argument `--exons.bed`:
 https://github.com/GavinHaLab/ichorCNA/blob/85c4339d7ced280d8e2113055f832911ea81cd08/scripts/createPanelOfNormals.R#L24
