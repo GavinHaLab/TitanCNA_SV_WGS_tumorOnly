@@ -1,7 +1,7 @@
 # Snakemake workflow for TitanCNA_SV_WGS_tumorOnly
 #
 
-# Modules to load
+# Modules to load (for users of Hutch)
 * ml snakemake/5.19.2-foss-2019b-Python-3.7.4
 * ml R/3.6.2-foss-2019b-fh1
 * ml Python/3.7.4-foss-2019b-fh1
@@ -17,7 +17,6 @@ Please specify the samples to be analyzed in config/samples.yaml, following the 
 There are a number of parameters to adjust in config/config.yaml.  Filepaths to where your TitanCNA and ichorCNA repository as well as the filepath to tools (samTools, bcfTools, svaba) and readCounterScript.
 
 # Running the snakemake workflows on slurm cluster
-
 
 `snakemake -s TitanCNA.snakefile --latency-wait 60 --restart-times 3 --keep-going --cluster-config config/cluster_slurm.yaml --cluster "sbatch -p {cluster.partition} --mem={cluster.mem} -t {cluster.time} -c {cluster.ncpus} -n {cluster.ntasks} -o {cluster.output}" -j 30`
 
@@ -35,7 +34,6 @@ The tumor-only pipeline can be applied to whole exome sequencing (WES) data. Thi
 There are 3 main steps to set up this analysis.
 
 ## 1. Create a Panel Of Normals (PoN)
-Follow the instructions for creating the PoN file here: https://github.com/broadinstitute/ichorCNA/wiki/Create-Panel-of-Normals
 
 1) Create WIG Files
 Create a WIG file for each sample in your PoN.
@@ -56,9 +54,9 @@ Rscript createPanelOfNormals.R
      --filelist /path/to/wig_files.txt \
      --gcWig /path/to/gc.wig --mapWig /path/to/map.wig --repTimeWig /path/to/repTiming.wig \
      --centromere /path/to/centromeres_file.txt \
-     --exons.bed ../target.bed \
-     --libdir /fh/fast/ha_g/user/mko/ichorCNA \
-     --outfile base_outfile_name
+     --exons.bed /path/to/WES_target.bed \
+     --libdir /path/to/ichorCNA \
+     --outfile my_new_pon
 ```
 
 Make sure to use the updated version of the R script https://github.com/GavinHaLab/ichorCNA/blob/master/scripts/createPanelOfNormals.R
