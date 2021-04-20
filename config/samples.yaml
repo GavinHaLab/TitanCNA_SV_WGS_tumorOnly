@@ -1,3 +1,3 @@
 samples:
-  PN002:  /fh/scratch/delete90/ha_g/Collaborator_Data/WGS/fastq_to_bam_paired_snakemake/results/PN002/PN002_recalibrated.bam
-  PN014:  /fh/scratch/delete90/ha_g/Collaborator_Data/WGS/fastq_to_bam_paired_snakemake/results/PN014/PN014_recalibrated.bam
+  sample1:  /path/to/tumor_sample1.bam
+  sample2:  /path/to/tumor_sample2.bam
