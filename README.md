@@ -80,7 +80,7 @@ Rscript createPanelOfNormals.R
 
 **--exons.bed** - Specify the exon target bed file
 
-Must use gc/map/repTime wig file corresponding to same binSize matching to window size (/path/to/readCounter --window) above.
+Must use gc/map/repTime wig file corresponding to same binSize matching to window size above (/path/to/readCounter **--window**).
 
 ## 2. Set `config.yaml` parameters
 - Specify the exon target bed file
