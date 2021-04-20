@@ -9,6 +9,8 @@
 * ml Pysam/0.15.4-GCC-8.3.0-Python-3.7.4
 * ml PyYAML/5.1.2-GCCcore-8.3.0-Python-3.7.4
 
+Requires to install ichorCNA from our GavinHaLab github https://github.com/GavinHaLab/ichorCNA
+
 # Software packages or libraries (for users outside of Hutch)
 Please see https://github.com/gavinha/TitanCNA/blob/edb1fd7bbdd273f8432c6167a0182d152f02dc7b/scripts/snakemake/README.md#software-packages-or-libraries
 
@@ -37,8 +39,6 @@ The tumor-only pipeline can be applied to whole exome sequencing (WES) data. Thi
 There are 3 main steps to set up this analysis.
 
 ## 1. Create a Panel Of Normals (PoN)
-
-Requires to install ichorCNA from our GavinHaLab github https://github.com/GavinHaLab/ichorCNA
 
 Make sure to use the updated version of the R script https://github.com/GavinHaLab/ichorCNA/blob/master/scripts/createPanelOfNormals.R
 
@@ -78,7 +78,7 @@ Rscript createPanelOfNormals.R
 
 **--mapWig** - Mappabiliy Wig file for reference genome (e.g. ichorCNA/inst/extdata/map_hg38_50kb.wig)
 
-**--repTimeWig** - Rep Time Wig file for reference genome (e.g. ichorCNA/inst/extdata/RepTiming_hg38_50kb.wig)
+**--repTimeWig** - Rep Time Wig file for reference genome (e.g. ichorCNA/inst/extdata/Koren_repTiming_hg38_50kb.wig)
 
 **--centromere** - File containing Centromere locations (e.g. GRCh38.GCA_000001405.2_centromere_acen.txt)
 
