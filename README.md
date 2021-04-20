@@ -37,7 +37,33 @@ There are 3 main steps to set up this analysis.
 ## 1. Create a Panel Of Normals (PoN)
 Follow the instructions for creating the PoN file here: https://github.com/broadinstitute/ichorCNA/wiki/Create-Panel-of-Normals
 
-However, make sure to use the updated version of the R script https://github.com/GavinHaLab/ichorCNA/blob/master/scripts/createPanelOfNormals.R
+1) Create WIG Files
+Create a WIG file for each sample in your PoN.
+	
+(Example)
+```
+/path/to/readCounter --window 50000 --quality 20 \
+	    --chromosome "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,X,Y" \
+	    /path/to/normal.bam > /path/to/normal.wig
+```
+
+2) Generate PoN
+Use the createPanelOfNormals.R script provided in the scripts directory of ichorCNA to generate your PoN. As input, this script takes a file that has the path to each WIG file you'd like to use in your panel (one per line, no header).
+	
+(Example)
+```
+Rscript createPanelOfNormals.R 
+     --filelist /path/to/wig_files.txt \
+     --gcWig /path/to/gc.wig --mapWig /path/to/map.wig --repTimeWig /path/to/repTiming.wig \
+     --centromere /path/to/centromeres_file.txt \
+     --exons.bed ../target.bed \
+     --libdir /fh/fast/ha_g/user/mko/ichorCNA \
+     --outfile base_outfile_name
+```
+
+Make sure to use the updated version of the R script https://github.com/GavinHaLab/ichorCNA/blob/master/scripts/createPanelOfNormals.R
+
+Requires to install ichorCNA from our GavinHaLab github https://github.com/GavinHaLab/ichorCNA
 
 Specify the exon target bed file using argument `--exons.bed`:
 https://github.com/GavinHaLab/ichorCNA/blob/85c4339d7ced280d8e2113055f832911ea81cd08/scripts/createPanelOfNormals.R#L24
