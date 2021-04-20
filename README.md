@@ -9,6 +9,9 @@
 * ml Pysam/0.15.4-GCC-8.3.0-Python-3.7.4
 * ml PyYAML/5.1.2-GCCcore-8.3.0-Python-3.7.4
 
+# Software packages or libraries (for users outside of Hutch)
+Please see https://github.com/gavinha/TitanCNA/blob/edb1fd7bbdd273f8432c6167a0182d152f02dc7b/scripts/snakemake/README.md#software-packages-or-libraries
+
 # Set-up
 ## config/samples.yaml
 Please specify the samples to be analyzed in config/samples.yaml, following the format explained therein.
