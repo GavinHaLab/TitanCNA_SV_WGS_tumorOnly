@@ -39,7 +39,7 @@ There are 3 main steps to set up this analysis.
 
 Create a WIG file for each sample in your PoN.
 	
-(Example)
+(Example) with 50kb bin size
 ```
 /path/to/readCounter --window 50000 --quality 20 \
 	    --chromosome "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,X,Y" \
@@ -48,7 +48,9 @@ Create a WIG file for each sample in your PoN.
 
 2) Generate PoN
 
-Use the createPanelOfNormals.R script provided in the scripts directory of ichorCNA to generate your PoN. As input, this script takes a file that has the path to each WIG file you'd like to use in your panel (one per line, no header).
+Use the createPanelOfNormals.R script provided in the scripts directory of ichorCNA to generate your PoN. 
+
+As input, this script takes a file that has the path to each WIG file you'd like to use in your panel (one per line, no header).
 	
 (Example)
 ```
@@ -65,9 +67,19 @@ Requires to install ichorCNA from our GavinHaLab github https://github.com/Gavin
 
 Make sure to use the updated version of the R script https://github.com/GavinHaLab/ichorCNA/blob/master/scripts/createPanelOfNormals.R
 
-Specify the exon target bed file using argument `--exons.bed`:
-https://github.com/GavinHaLab/ichorCNA/blob/85c4339d7ced280d8e2113055f832911ea81cd08/scripts/createPanelOfNormals.R#L24
+**--filelist** - file containing a list of the paths to all the normals in the panel to analyze
 
+**--gcWig** - GC Wig file for reference genome (e.g. ichorCNA/inst/extdata/gc_hg38_50kb.wig)
+
+**--mapWig** - Mappabiliy Wig file for reference genome (e.g. ichorCNA/inst/extdata/map_hg38_50kb.wig)
+
+**--repTimeWig** - Rep Time Wig file for reference genome (e.g. ichorCNA/inst/extdata/RepTiming_hg38_50kb.wig)
+
+**--centromere** - File containing Centromere locations (e.g. GRCh38.GCA_000001405.2_centromere_acen.txt)
+
+**--exons.bed** - Specify the exon target bed file
+
+Must use gc/map/repTime wig file corresponding to same binSize matching to window size above.
 
 ## 2. Set `config.yaml` parameters
 - Specify the exon target bed file
