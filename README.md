@@ -36,6 +36,7 @@ There are 3 main steps to set up this analysis.
 ## 1. Create a Panel Of Normals (PoN)
 
 1) Create WIG Files
+
 Create a WIG file for each sample in your PoN.
 	
 (Example)
@@ -46,6 +47,7 @@ Create a WIG file for each sample in your PoN.
 ```
 
 2) Generate PoN
+
 Use the createPanelOfNormals.R script provided in the scripts directory of ichorCNA to generate your PoN. As input, this script takes a file that has the path to each WIG file you'd like to use in your panel (one per line, no header).
 	
 (Example)
