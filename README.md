@@ -63,7 +63,8 @@ As input, this script takes a file that has the path to each WIG file you'd like
 ```
 Rscript createPanelOfNormals.R 
      --filelist /path/to/wig_files.txt \
-     --gcWig /path/to/gc.wig --mapWig /path/to/map.wig --repTimeWig /path/to/repTiming.wig \
+     --gcWig /path/to/gc.wig --mapWig /path/to/map.wig 
+     --repTimeWig /path/to/repTiming.wig \
      --centromere /path/to/centromeres_file.txt \
      --exons.bed /path/to/WES_target.bed \
      --libdir /path/to/ichorCNA \
