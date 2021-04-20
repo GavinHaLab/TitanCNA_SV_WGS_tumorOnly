@@ -35,6 +35,10 @@ There are 3 main steps to set up this analysis.
 
 ## 1. Create a Panel Of Normals (PoN)
 
+Requires to install ichorCNA from our GavinHaLab github https://github.com/GavinHaLab/ichorCNA
+
+Make sure to use the updated version of the R script https://github.com/GavinHaLab/ichorCNA/blob/master/scripts/createPanelOfNormals.R
+
 1) Create WIG Files
 
 Create a WIG file for each sample in your PoN.
@@ -63,9 +67,6 @@ Rscript createPanelOfNormals.R
      --outfile my_new_pon
 ```
 
-Requires to install ichorCNA from our GavinHaLab github https://github.com/GavinHaLab/ichorCNA
-
-Make sure to use the updated version of the R script https://github.com/GavinHaLab/ichorCNA/blob/master/scripts/createPanelOfNormals.R
 
 **--filelist** - file containing a list of the paths to all the normals in the panel to analyze
 
@@ -79,7 +80,7 @@ Make sure to use the updated version of the R script https://github.com/GavinHaL
 
 **--exons.bed** - Specify the exon target bed file
 
-Must use gc/map/repTime wig file corresponding to same binSize matching to window size above.
+Must use gc/map/repTime wig file corresponding to same binSize matching to window size (/path/to/readCounter --window) above.
 
 ## 2. Set `config.yaml` parameters
 - Specify the exon target bed file
