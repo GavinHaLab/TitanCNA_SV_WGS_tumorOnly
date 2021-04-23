@@ -14,6 +14,7 @@
 Please see https://github.com/gavinha/TitanCNA/blob/edb1fd7bbdd273f8432c6167a0182d152f02dc7b/scripts/snakemake/README.md#software-packages-or-libraries
 
 Requires to install **ichorCNA from our GavinHaLab github** https://github.com/GavinHaLab/ichorCNA
+
 Requires to install **TitanCNA** https://github.com/gavinha/TitanCNA
 
 # Set-up
